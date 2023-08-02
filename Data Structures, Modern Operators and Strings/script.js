@@ -15,6 +15,17 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  // destructuring from obj that is passed in
+  orderDelievery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delievered to ${address} at ${time}`
+    );
+  },
 
   openingHours: {
     thu: {
@@ -32,7 +43,7 @@ const restaurant = {
   },
 };
 
-// Destructuring Arrays
+// Destructuring Arrays - use []
 const arr = [2, 3, 4];
 const a = arr[0];
 const b = arr[1];
@@ -70,3 +81,46 @@ console.log(i, j, k);
 // Default values, the ones in the array will overwrite the default values
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
+
+// ----------------------------------------------------------------------
+
+// Destructuring Objects - use {}
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+// changing the variable name for the selected elements
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+// default values for objects
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// mutating variables
+let e = 111;
+let w = 999;
+const obj = { e: 23, w: 7, t: 14 };
+({ e, w } = obj);
+console.log(e, w);
+
+// destructuring nested objects
+const {
+  sat: { open: oHours, close: cHours },
+} = openingHours;
+console.log(oHours, cHours);
+
+restaurant.orderDelievery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+restaurant.orderDelievery({
+  address: 'Via del Sole, 21',
+  starterIndex: 1,
+});
