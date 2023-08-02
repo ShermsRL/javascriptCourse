@@ -27,6 +27,10 @@ const restaurant = {
     );
   },
 
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
+
   openingHours: {
     thu: {
       open: 12,
@@ -124,3 +128,52 @@ restaurant.orderDelievery({
   address: 'Via del Sole, 21',
   starterIndex: 1,
 });
+// ----------------------------------------------------------------------
+
+// spread operator
+const arr2 = [7, 8, 9, 10, 11, 12, 13];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+// unpacking the elements using spread operator
+const newArr = [1, 2, ...arr2];
+console.log(newArr);
+
+console.log(...newArr);
+
+// adding new element using old arr
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+// copy arr
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// join 2 arr
+const menu2 = [...mainMenuCopy, ...restaurant.starterMenu];
+console.log(menu2);
+
+// spread operator works on all iterables (arr, str, maps, sets, not objects)
+const string = 'Sherman';
+const letters = [...string, ' ', 'T.'];
+console.log(letters);
+
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1?"),
+//   prompt('Ingredient 2?'),
+//   prompt('Ingredient 3?'),
+// ];
+// console.log(ingredients);
+
+// the below 2 statements is the same
+// restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+// restaurant.orderPasta(...ingredients);
+
+// objects unpack
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Guiseppe' };
+console.log(newRestaurant);
+
+// copying objects
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
