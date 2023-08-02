@@ -257,3 +257,35 @@ console.log(guests3);
 // it recognise 0 or '' as truthy value
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);
+
+// ----------------------------------------------------------------------
+
+// Logical Assignment operators
+const rest1 = {
+  name: 'capri',
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// OR assignment operator
+// rest2.numGuests = rest2.numGuests || 10;
+// rest1.numGuests = rest1.numGuests || 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// nullish assignment operator
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// AND assignment operator
+// rest2.owner = rest2.owner && '<ANNOYMOUS>';
+rest1.owner &&= '<ANNOYMOUS>';
+rest2.owner &&= '<ANNOYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
