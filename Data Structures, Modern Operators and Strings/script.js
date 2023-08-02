@@ -216,3 +216,32 @@ add(...arr4);
 
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 restaurant.orderPizza('mushrooms');
+
+// ----------------------------------------------------------------------
+
+// short circuiting
+// Use any data type, return Any data type, short circuiting
+// if first value is truthy value, it will return the first value
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+
+console.log('Hello' && 23 && null && 'Jonas');
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
