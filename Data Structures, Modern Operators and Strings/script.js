@@ -289,3 +289,15 @@ rest2.owner &&= '<ANNOYMOUS>';
 
 console.log(rest1);
 console.log(rest2);
+
+// ----------------------------------------------------------------------
+
+// The for-of Loop
+const menu3 = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu3) console.log(item);
+
+// accessing the index with for-of loop
+for (const [i, el] of menu3.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
