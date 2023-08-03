@@ -331,4 +331,34 @@ for (const [i, el] of menu3.entries()) {
 
 // ----------------------------------------------------------------------
 
-// Enhanced Object literals
+// Optional Chaining
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// Above example shows that there may be too many properties
+// ES 2020 intro a new feature, optional chaining
+// If an optional property does not exist, then undefined is returned immediately
+
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+const days = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'];
+for (const day of days) {
+  console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+// optional chaining for methods
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// option chaining for arrays
+const users = [
+  {
+    name: 'Jonas',
+    email: 'hello@jonas.io',
+  },
+];
+
+console.log(users[0]?.name ?? 'User array empty');
