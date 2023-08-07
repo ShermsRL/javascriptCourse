@@ -1,4 +1,4 @@
-// Coding Challenge #2
+// Coding Challenge 2
 
 /* 
 Let's continue with our football betting app!
