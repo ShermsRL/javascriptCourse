@@ -390,4 +390,44 @@ for (const [key, { open, close }] of entries) {
 
 // ----------------------------------------------------------------------
 
-// Sets
+// Sets - cannot have duplicates
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+
+console.log(ordersSet);
+
+console.log(new Set('Jonas'));
+
+console.log(ordersSet.size);
+
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+console.log(ordersSet);
+
+ordersSet.delete('Risotto');
+console.log(ordersSet);
+
+// delete everything from set
+// ordersSet.clear();
+
+// looping through set
+for (const order of ordersSet) console.log(order);
+
+// use case of set
+const staff = ['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter'];
+// using spread operator on sets
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+console.log(
+  new Set(['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter']).size
+);
