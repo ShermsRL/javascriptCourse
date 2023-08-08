@@ -107,3 +107,15 @@ console.log([...arr, ...arr2]);
 
 // Join
 console.log(letters.join('-'));
+
+// New AT method
+const arr3 = [23, 11, 64];
+console.log(arr3[0]);
+console.log(arr3.at(0));
+
+// getting the last arr element
+console.log(arr3[arr3.length - 1]);
+console.log(arr3.slice(-1)[0]);
+console.log(arr.at(-1));
+// works for str as well
+console.log('sherman'.at(-1));
