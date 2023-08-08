@@ -168,3 +168,27 @@ currenciesUnique.forEach(function (value) {
   // key === value because set have no key
   console.log(`${value}`);
 });
+
+// Data Transformations: Map, Filter, Reduce
+// Map method - will return a new array
+// Do something to the element at that position, maps the element to another element
+
+const eurToUsd = 1.1;
+
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
+const movementsUSD = movements.map(mov => mov * eurToUsd);
+console.log(movements);
+console.log(movementsUSD);
+
+// comparison with for of loop
+const movementsUSDFor = [];
+for (const mov of movements) movementsUSDFor.push(mov * eurToUsd);
+console.log(movementsUSDFor);
+
+const movementsDescriptions = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`
+);
+console.log(movementsDescriptions);
