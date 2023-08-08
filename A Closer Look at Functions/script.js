@@ -193,3 +193,16 @@ const addTaxRate = function (rate) {
 const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
 console.log(addVAT2(23));
+
+// Immediately Invoked Function Expressions (IIFE)
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
+
+// IIFE - functions that only run once
+(function () {
+  console.log('This will never run again');
+})();
+
+(() => console.log('This will never run again'))();
