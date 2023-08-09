@@ -219,3 +219,20 @@ console.log(depositsFor);
 
 const withdrawals = movements.filter(mov => mov < 0);
 console.log(withdrawals);
+
+// The reduce method
+// accumulator -> the sum that will be the sum of all numbers
+const balance = movements.reduce(function (acc, curr, i, arr) {
+  console.log(`Iteration ${i}: ${acc}`);
+  return acc + curr;
+}, 100); // specifying the starting number for accumulator
+console.log(balance);
+
+// written as arrow function
+const balance2 = movements.reduce((acc, curr) => acc + curr, 100);
+console.log(balance2);
+
+// comparison with for of loop
+let balance3 = 0;
+for (const mov of movements) balance3 += mov;
+console.log(balance3);
