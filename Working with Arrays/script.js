@@ -464,3 +464,34 @@ console.log(movements);
 // });
 movements.sort((a, b) => b - a);
 console.log(movements);
+
+// More ways of creating and filling arrays
+// passing in only 1 argument will create a empty arr of that length
+const x = new Array(7);
+console.log(x);
+
+// fill mutate the og arr
+// x.fill(1);
+// you can specify the starting and ending index
+x.fill(1, 3, 5);
+console.log(x);
+
+// can also use fill on non empty arr
+const arr5 = [1, 2, 3, 4, 5, 6, 7, 8];
+arr5.fill(23, 2, 6);
+console.log(arr5);
+
+// Array.from
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (cur, i) => i + 1);
+console.log(z);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', ''))
+  );
+  console.log(movementsUI);
+});
