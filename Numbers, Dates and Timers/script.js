@@ -388,3 +388,40 @@ console.log(10n / 3n); // big int will cut of the decimals
 console.log(10 / 3);
 
 // Creating dates
+// Method 1
+const now = new Date();
+console.log(now);
+
+// Method 2 - string
+console.log(new Date('Aug 14 2023 20:17:46'));
+console.log(new Date('December 24, 2015'));
+console.log(new Date(account1.movementsDates[0]));
+
+// Method 3 - year month(0 index based) date, hour min seconds
+console.log(new Date(2037, 10, 19, 15, 23, 5));
+// dates will be auto corrected
+console.log(new Date(2037, 10, 33));
+
+// Method 4
+console.log(new Date(0));
+// 3 days * 24hrs * 60mins * 60s * 1000(to convert to ms)
+console.log(new Date(3 * 24 * 60 * 60 * 1000));
+
+// Working with dates
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate()); // day of the month
+console.log(future.getDay()); // day of the week
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime()); // time passed since 1970 jan 1
+
+console.log(new Date(2142228180000));
+console.log(Date.now());
+
+future.setFullYear(2040);
+console.log(future);
