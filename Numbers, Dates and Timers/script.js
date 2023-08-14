@@ -321,3 +321,20 @@ console.log((2.7).toFixed(3));
 console.log((2.345).toFixed(2));
 // converting to number
 console.log(+(2.345).toFixed(2));
+
+// remainder operator (mod)
+console.log(5 % 2);
+console.log(5 / 2);
+console.log(8 % 3);
+
+const isEven = n => n % 2 === 0;
+console.log(isEven(8));
+console.log(isEven(23));
+console.log(isEven(514));
+
+labelBalance.addEventListener('click', function () {
+  [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
+    if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+    if (i % 3 === 0) row.style.backgroundColor = 'blue';
+  });
+});
