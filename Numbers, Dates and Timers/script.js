@@ -357,4 +357,34 @@ console.log(PI);
 // underscore in str will not be read as numbers
 // console.log(Number('230_000'));
 
-//
+// Working with BigInt
+// Max int JS can handle
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+
+// n makes the number to bigint
+console.log(9018359808759801723489071238094709128n);
+// BigInt() will still be inaccurate so use it only for number up to max safe int
+console.log(BigInt(9018359808759801723489071238094709128));
+
+// Operations
+console.log(10000n + 10000n);
+console.log(98473589042354235724398750942375n * 100000000n);
+
+// no mixing of bigint and int
+const huge = 932018509809185308109385n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+// comparison
+console.log(20n > 15); //true
+console.log(20n === 20); // false because type is different
+console.log(20n == 20); // true
+
+console.log(huge + ' is REALLY big!!!');
+
+// Divisions
+console.log(10n / 3n); // big int will cut of the decimals
+console.log(10 / 3);
+
+// Creating dates
