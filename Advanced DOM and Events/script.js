@@ -85,7 +85,7 @@ console.log(message.style.backgroundColor);
 console.log(getComputedStyle(message).height);
 
 message.style.height =
-  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
+  Number.parseFloat(getComputedStyle(message).height, 10) + 10 + 'px';
 
 document.documentElement.style.setProperty('--color-primary', 'orangered');
 
@@ -121,3 +121,39 @@ logo.classList.contains('c');
 
 // setting the class but DO NOT USE as it will overwrite the other class you have, just use the above 4 to work with classes
 logo.className = 'Sherman';
+
+// Implementing smooth scrolling
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  console.log(e.target.getBoundingClientRect());
+
+  console.log('Current scroll (X/Y)', window.scrollX, scrollY);
+
+  console.log(
+    'height/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+
+  // Scrolling
+  // window.scrollTo(
+  //   // current pos + current scroll
+  //   s1coords.left + window.scrollX,
+  //   s1coords.top + window.scrollY
+  // );
+
+  // old school way
+  // window.scrollTo({
+  //   left: s1coords.left + window.scrollX,
+  //   top: s1coords.top + window.scrollY,
+  //   behavior: 'smooth',
+  // });
+
+  // only for modern browser
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
