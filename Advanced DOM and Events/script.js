@@ -71,3 +71,53 @@ document
     // old way of removing element through dom tranversing
     // message.parentElement.removeChild(message)
   });
+
+// Styles, attributes and classes
+// Styles
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+
+// can only read the ones defined in the DOM
+console.log(message.style.height);
+console.log(message.style.backgroundColor);
+
+// to read other properties not defined not in the DOM
+console.log(getComputedStyle(message).height);
+
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
+
+document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+// Attributes
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.className);
+
+logo.alt = 'Beautiful minimalist logo';
+
+// returned undefined because designer is not normally inside a image
+console.log(logo.designer);
+// to read the designer
+console.log(logo.getAttribute('designer'));
+logo.setAttribute('company', 'Bankist');
+// different link - one is relative to your working folder
+console.log(logo.src);
+console.log(logo.getAttribute('src'));
+
+const link = document.querySelector('.nav__link--btn');
+console.log(link.href);
+console.log(link.getAttribute('href'));
+
+// Data attributes
+console.log(logo.dataset.versionNumber);
+
+// Classes
+logo.classList.add('c');
+logo.classList.remove('c');
+logo.classList.toggle('c');
+logo.classList.contains('c');
+
+// setting the class but DO NOT USE as it will overwrite the other class you have, just use the above 4 to work with classes
+logo.className = 'Sherman';
