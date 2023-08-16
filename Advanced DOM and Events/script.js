@@ -221,21 +221,21 @@ logo.className = 'Sherman';
 // Type of events and event handlers
 // add event listener - can add multiple event listener to the same event
 // second is can remove event handler in case you dont need it anymore
-const h1 = document.querySelector('h1');
+// const h1 = document.querySelector('h1');
 
-const alertH1 = function (e) {
-  alert('addEventListener: Great! You are reading the heading :D');
-};
+// const alertH1 = function (e) {
+//   alert('addEventListener: Great! You are reading the heading :D');
+// };
 
-h1.addEventListener('mouseenter', alertH1);
+// h1.addEventListener('mouseenter', alertH1);
 
-// remove event listener can be anywhere
-setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
+// // remove event listener can be anywhere
+// setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
 
-// old school way
-h1.onmouseenter = function (e) {
-  alert('addEventListener: Great! You are reading the heading :D');
-};
+// // old school way
+// h1.onmouseenter = function (e) {
+//   alert('addEventListener: Great! You are reading the heading :D');
+// };
 
 // Event propagation: bubbling and capturing
 // const randomInt = (min, max) =>
@@ -267,3 +267,33 @@ h1.onmouseenter = function (e) {
 //   }
 //   // true
 // );
+
+// DOM traversing
+const h1 = document.querySelector('h1');
+// Going downwards: child element, no matter how far down the DOM tree
+console.log(h1.querySelectorAll('.highlight'));
+console.log(h1.childNodes); // return nodelist
+console.log(h1.children); // return html collection (only for direct children)
+h1.firstElementChild.style.color = 'white';
+h1.lastElementChild.style.color = 'orangered';
+
+// Going upwards: parent element
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+
+// closest parent element, no matter how far up in the DOM tree
+h1.closest('.header').style.background = 'var(--gradient-secondary)';
+
+h1.closest('h1').style.background = 'var(--gradient-primary)';
+
+// Going sideways: siblings element, only prev and next
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
+
+console.log(h1.previousSibling);
+console.log(h1.nextSibling);
+
+console.log(h1.parentElement.children);
+[...h1.parentElement.children].forEach(function (el) {
+  if (el !== h1) el.style.transform = 'scale(0.5)';
+});
